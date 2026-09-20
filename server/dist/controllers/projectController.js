@@ -44,7 +44,7 @@ const makeRevision = async (req, res) => {
         });
         //Enhance user prompt
         const promptEnhanceResponse = await openai_1.default.chat.completions.create({
-            model: 'nvidia/nemotron-3.5-lightning:free',
+            model: 'poolside/laguna-s-2.1:free',
             messages: [
                 {
                     role: 'system',
@@ -81,7 +81,7 @@ Return ONLY the enhanced request, nothing else. Keep it concise (1-2 sentences).
         });
         //GENERATE website code
         const codeGenerationResponse = await openai_1.default.chat.completions.create({
-            model: 'nvidia/nemotron-3.5-lightning:free',
+            model: 'poolside/laguna-s-2.1:free',
             messages: [{
                     role: 'system',
                     content: `
@@ -104,6 +104,20 @@ Return ONLY the enhanced request, nothing else. Keep it concise (1-2 sentences).
             ]
         });
         const code = codeGenerationResponse.choices[0].message.content || '';
+        if (!code) {
+            await prisma_1.default.conversation.create({
+                data: {
+                    role: 'assistant',
+                    content: "Unable to generate the code, please try again",
+                    projectId
+                }
+            });
+            await prisma_1.default.user.update({
+                where: { id: userId },
+                data: { credits: { increment: 5 } }
+            });
+            return;
+        }
         const version = await prisma_1.default.version.create({
             data: {
                 code: code.replace(/```[a-z]*\n?/gi, '')

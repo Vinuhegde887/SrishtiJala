@@ -63,7 +63,7 @@ const createUserProject = async (req, res) => {
         res.json({ projectId: project.id });
         //enhance user prompt
         const promptEnhanceResponse = await openai_1.default.chat.completions.create({
-            model: 'nvidia/nemotron-3.5-lightning:free',
+            model: 'poolside/laguna-s-2.1:free',
             messages: [
                 {
                     role: 'system',
@@ -105,7 +105,7 @@ const createUserProject = async (req, res) => {
         });
         //generate website code
         const codeGenerationResponse = await openai_1.default.chat.completions.create({
-            model: 'nvidia/nemotron-3.5-lightning:free',
+            model: 'poolside/laguna-s-2.1:free',
             messages: [
                 {
                     role: 'system',
@@ -142,6 +142,20 @@ const createUserProject = async (req, res) => {
             ]
         });
         const code = codeGenerationResponse.choices[0].message.content || '';
+        if (!code) {
+            await prisma_1.default.conversation.create({
+                data: {
+                    role: 'assistant',
+                    content: "Unable to generate the code, please try again",
+                    projectId: project.id
+                }
+            });
+            await prisma_1.default.user.update({
+                where: { id: userId },
+                data: { credits: { increment: 5 } }
+            });
+            return;
+        }
         //create a vesrion for the project
         const version = await prisma_1.default.version.create({
             data: {

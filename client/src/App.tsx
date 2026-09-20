@@ -8,7 +8,7 @@ import Preview from './pages/Preview'
 import Community from './pages/Community'
 import View from './pages/View'
 import Navbar from './components/Navbar'
-import { Toaster,toast} from "@/components/ui/toast"
+import { Toaster} from "@/components/ui/toast"
 import AuthPage from './pages/auth/AuthPage'
 import Settings from './pages/Settings'
 import Loading from './pages/Loading'

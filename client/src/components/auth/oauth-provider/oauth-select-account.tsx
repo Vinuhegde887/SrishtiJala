@@ -78,6 +78,7 @@ export function OAuthSelectAccount({ className }: OAuthSelectAccountProps) {
   })
   const { data: deviceSessions, isPending: isDeviceSessionsPending } =
     useListDeviceSessions(oauthClient)
+  const sessions = Array.isArray(deviceSessions) ? deviceSessions : []
 
   const client = publicClient.data
   const clientName = client?.client_name || localization.application
@@ -190,7 +191,7 @@ export function OAuthSelectAccount({ className }: OAuthSelectAccountProps) {
               </ItemContent>
             </Item>
           </ItemGroup>
-        ) : !deviceSessions?.length ? (
+        ) : sessions.length === 0 ? (
           <div className="flex flex-col items-center gap-1 py-6 text-center">
             <p className="text-sm font-semibold">{localization.noAccounts}</p>
             <p className="text-xs text-muted-foreground">
@@ -202,7 +203,7 @@ export function OAuthSelectAccount({ className }: OAuthSelectAccountProps) {
           </div>
         ) : (
           <ItemGroup className="gap-2">
-            {deviceSessions.map((deviceSession) => {
+            {deviceSessions.map((deviceSession:any) => {
               const isCurrent = deviceSession.session.id === session?.session.id
               const isSelecting = pendingSessionId === deviceSession.session.id
 
