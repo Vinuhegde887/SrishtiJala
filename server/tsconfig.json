@@ -11,8 +11,12 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "**/*.ts",
-    "**/*.d.ts"
+    "controllers/**/*.ts",
+    "middlewares/**/*.ts",
+    "routes/**/*.ts",
+    "lib/**/*.ts",
+    "types/**/*.d.ts",
+    "*.ts"
   ],
   "exclude": [
     "node_modules",
