@@ -11,10 +11,11 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "./**/*.ts",
-    "./**/*.d.ts"
+    "**/*.ts",
+    "**/*.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ]
 }
