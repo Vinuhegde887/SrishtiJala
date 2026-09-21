@@ -29,12 +29,12 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/pricing' element={<Pricing/>}/>
-        <Route path='/Projects/:projectId' element={<Projects/>}/>
-        <Route path='/Projects' element={<MyProjects/>}/>
-        <Route path='/Preview/:projectId' element={<Preview/>}/>
-        <Route path='/Preview/:projectId/:versionId' element={<Preview/>}/>
-        <Route path='/Community' element={<Community/>}/>
-        <Route path='/View/:projectId' element={<View/>}/>
+        <Route path='/projects/:projectId' element={<Projects/>}/>
+        <Route path='/projects' element={<MyProjects/>}/>
+        <Route path='/preview/:projectId' element={<Preview/>}/>
+        <Route path='/preview/:projectId/:versionId' element={<Preview/>}/>
+        <Route path='/community' element={<Community/>}/>
+        <Route path='/view/:projectId' element={<View/>}/>
         <Route path="/auth/:pathname" element={<AuthPage />} />
         <Route path="settings/account/" element={<Settings />} />
         <Route path='/loading' element={<Loading/>}/>

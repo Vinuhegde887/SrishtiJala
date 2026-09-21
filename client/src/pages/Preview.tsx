@@ -15,10 +15,10 @@ const Preview = () => {
  
   const fetchCode= async()=>{
     try{
-      const {data} = await api.get(`/api/projects/preview/${projectId}`)
+      const {data} = await api.get(`/api/project/preview/${projectId}`)
       setCode(data.project.current_code)
       if(versionId){
-        data.project.vesions.forEach((version:Version)=>{
+        data.project.versions.forEach((version:Version)=>{
           if(version.id === versionId){
             setCode(version.code)
           }
@@ -28,6 +28,8 @@ const Preview = () => {
     }catch(error:any){
       toast.error(error?.response?.data?.message || error.message)
       console.log(error);
+    } finally {
+      setLoading(false)
     }
     
   }
