@@ -10,49 +10,39 @@ SrishtiJala is a full-stack AI website generation platform that lets users creat
 
 ### 🏠 Home Page
 
-<!-- Add your screenshot: docs/screenshots/home.png -->
-<!-- ![Home Page](docs/screenshots/home.png) -->
-> 📷 _Place `home.png` in `docs/screenshots/`
 
----
+![Home Page](docs/screenshots/home.png)
 
-### 🔐 Authentication (Sign In / Sign Up)
-
-<!-- Add your screenshot: docs/screenshots/auth.png -->
-<!-- ![Auth Page](docs/screenshots/auth.png) -->
-> 📷 _Place `auth.png` in `docs/screenshots/` 
 
 ---
 
 ### 📁 My Projects Dashboard
 
-<!-- Add your screenshot: docs/screenshots/my-projects.png -->
-<!-- ![My Projects](docs/screenshots/my-projects.png) -->
-> 📷 _Place `my-projects.png` in `docs/screenshots/`
+
+![My Projects](docs/screenshots/my-projects.png)
+
 
 ---
 
 ### ⚡ AI Project Editor
 
-<!-- Add your screenshot: docs/screenshots/project-editor.png -->
-<!-- ![Project Editor](docs/screenshots/project-editor.png) -->
-> 📷 _Place `project-editor.png` in `docs/screenshots/` 
+
+![Project Editor](docs/screenshots/project-editor.png)
 
 ---
 
 ### 👁️ Live Preview
 
-<!-- Add your screenshot: docs/screenshots/preview.png -->
-<!-- ![Live Preview](docs/screenshots/preview.png) -->
-> 📷 _Place `preview.png` in `docs/screenshots/`
+
+![Live Preview](docs/screenshots/preview.png)
+
 
 ---
 
 ### 🌍 Community Showcase
 
-<!-- Add your screenshot: docs/screenshots/community.png -->
-<!-- ![Community](docs/screenshots/community.png) -->
-> 📷 _Place `community.png` in `docs/screenshots/`
+![Community](docs/screenshots/community.png)
+
 
 ---
 
